@@ -1,4 +1,5 @@
 import { newsArticles } from './news-data.js';
+import { assetPath } from './site-config.js';
 
 export function createNewsComponents({ React, Link, External, Intro, Eyebrow, Community }) {
   const h = React.createElement;
@@ -16,7 +17,7 @@ export function createNewsComponents({ React, Link, External, Intro, Eyebrow, Co
   function Card({ article }) {
     return h('article', { className: `news-card news-card-${article.category.toLowerCase().replaceAll(' ', '-')}` },
       h(Link, { href: storyHref(article), className: 'news-card-image', tabIndex: -1, 'aria-hidden': true },
-        h('img', { src: article.image, alt: '', loading: 'lazy', width: 640, height: 360 })),
+        h('img', { src: assetPath(article.image), alt: '', loading: 'lazy', width: 640, height: 360 })),
       h('div', { className: 'news-card-copy' },
         h('div', { className: 'news-card-meta' }, h(Category, null, article.category),
           h('time', { dateTime: article.date }, dateText(article.date))),
@@ -53,7 +54,7 @@ export function createNewsComponents({ React, Link, External, Intro, Eyebrow, Co
         text: 'Game updates, studio notes, and the creator behind it all. Your checkpoint for Equality Studios.' }),
       h('section', { className: 'news-feature', 'aria-label': 'Featured story' },
         h(Link, { href: storyHref(featured), className: 'news-feature-image', tabIndex: -1, 'aria-hidden': true },
-          h('img', { src: featured.image, alt: '', width: 960, height: 540 })),
+          h('img', { src: assetPath(featured.image), alt: '', width: 960, height: 540 })),
         h('div', { className: 'news-feature-copy' },
           h('div', { className: 'news-feature-label' }, h('span', null, 'FEATURED'), h(Category, null, featured.category)),
           h('h2', null, h(Link, { href: storyHref(featured) }, featured.title)),
@@ -119,7 +120,7 @@ export function createNewsComponents({ React, Link, External, Intro, Eyebrow, Co
           h('h1', null, article.title), h('p', { className: 'news-story-summary' }, article.summary),
           h('div', { className: 'news-story-byline' }, h('span', null, 'Equality News'),
             h('time', { dateTime: article.date }, article.dateLabel), h('span', null, article.readTime))),
-        h('img', { className: 'news-story-image', src: article.image, alt: article.imageAlt, width: 1200, height: 675 }),
+        h('img', { className: 'news-story-image', src: assetPath(article.image), alt: article.imageAlt, width: 1200, height: 675 }),
         h('div', { className: 'news-story-body' },
           article.paragraphs.map((paragraph, i) => h('p', { key: i }, paragraph)),
           article.highlights && h('section', { className: 'news-highlights' },
