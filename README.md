@@ -15,4 +15,12 @@ Run `npm run build`, then `npm run check`. No dependency installation is needed.
 
 The public Roblox profile, group ownership, game publisher, update notes, and Discord invitation were checked on November 3, 2026. The invitation was valid when checked, but expires December 3, 2026; replace it with an owner-provided permanent invitation when available. This repository does not provide an admin CMS or automatic news ingestion.
 
-The recreated site deploys separately from the original Runable URL.
+## GitHub Pages
+
+The GitHub Pages address is `https://aperson-ux.github.io/equality-studios/` once Pages is enabled and deployment succeeds.
+
+`site.config.json` contains the GitHub origin and project path. The build applies this path to navigation, images, news articles, metadata, and direct page links. The workflow in `.github/workflows/pages.yml` builds, checks, and publishes `dist` on pushes to `main`, and can also be run manually.
+
+In repository **Settings → Pages**, choose **GitHub Actions** as the publishing source. GitHub Free requires a public repository for Pages. The source code contains no passwords, API keys, or account tokens.
+
+This repository is the GitHub-hosted version. The earlier Runable and Sites copies are separate deployments.
