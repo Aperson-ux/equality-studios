@@ -1,0 +1,10 @@
+{
+  "name": "equality-studios-creator-hub",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/prepare.mjs",
+    "check": "node scripts/check.mjs",
+    "preview": "node scripts/preview.mjs"
+  }
+}
